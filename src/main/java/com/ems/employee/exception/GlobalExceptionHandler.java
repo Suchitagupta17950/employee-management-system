@@ -62,9 +62,13 @@ public class GlobalExceptionHandler {
         );
     }
 
+
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleGeneralException(
             Exception exception) {
+
+                exception.printStackTrace();
 
         return ResponseEntity.status(500).body(
                 new ApiResponse<>(
