@@ -60,9 +60,11 @@ public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
 
     configuration.setAllowedOrigins(
-            java.util.List.of("http://localhost:5173")
-    );
-
+        java.util.List.of(
+                "http://localhost:5173",
+                "https://employee-management-system-ashy-sigma.vercel.app"
+        )
+);
     configuration.setAllowedMethods(
             java.util.List.of(
                     "GET",
