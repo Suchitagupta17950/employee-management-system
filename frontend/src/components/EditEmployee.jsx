@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AddEmployee.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function EditEmployee({ employee, onEmployeeUpdated, onCancel }) {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ function EditEmployee({ employee, onEmployeeUpdated, onCancel }) {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:8080/employees/${employee.id}`,
+        `${API_URL}/employees/${employee.id}`,
         {
           method: "PUT",
           headers: {

@@ -6,6 +6,7 @@ import EmployeeTable from "./components/EmployeeTable";
 import AddEmployee from "./components/AddEmployee";
 import EditEmployee from "./components/EditEmployee";
 import { getUserFromToken } from "./services/authService";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -38,13 +39,13 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/auth/login?username=${encodeURIComponent(
-          username
-        )}&password=${encodeURIComponent(password)}`,
-        {
-          method: "POST",
-        }
-      );
+  `${API_URL}/auth/login?username=${encodeURIComponent(
+    username
+  )}&password=${encodeURIComponent(password)}`,
+  {
+    method: "POST",
+  }
+);
 
       const data = await response.json();
 

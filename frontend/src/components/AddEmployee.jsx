@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AddEmployee.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function AddEmployee({ onEmployeeAdded, onCancel }) {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ function AddEmployee({ onEmployeeAdded, onCancel }) {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:8080/employees",
+        `${API_URL}/employees`,
         {
           method: "POST",
           headers: {

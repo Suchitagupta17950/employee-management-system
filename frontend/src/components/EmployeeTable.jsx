@@ -1,4 +1,4 @@
-
+const API_URL = import.meta.env.VITE_API_URL;
 import { useEffect, useState } from "react";
 import {
   getEmployees,
@@ -130,7 +130,7 @@ function EmployeeTable({
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:8080/employees/${employee.id}`,
+        `${API_URL}/employees/${employee.id}`,
         {
           method: "DELETE",
           headers: {
